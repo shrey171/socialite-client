@@ -6,7 +6,7 @@ import {
   RouterProvider,
   createBrowserRouter,
 } from "react-router-dom";
-import { AuthLayout, ForgotPassword, Login, Register, ResetPassword } from "auth";
+import { AuthLayout, ForgotPassword, Login, Register, ResetPassword, VerifyUser } from "auth";
 import { Provider } from "react-redux";
 import { store } from "store";
 import "./index.css";
@@ -31,7 +31,11 @@ const publicRoutes: RouteObject = {
     {
       path: '/reset-password/:id/:token',
       element: <ResetPassword />
-    }
+    },
+    {
+      path: '/verify',
+      element: <VerifyUser />
+    },
   ],
 };
 

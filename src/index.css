@@ -12,6 +12,17 @@
   body {
     @apply bg-dark-1 text-white min-h-screen font-inter;
   }
+
+  /* removes arrows from number input */
+  input[type='number']::-webkit-outer-spin-button,
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number'] {
+    appearance: textfield !important;
+    -webkit-appearance: none !important;
+    margin: 0;
+    -moz-appearance: textfield !important;
+  }
+
 }
 
 @layer utilities {

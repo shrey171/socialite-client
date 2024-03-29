@@ -5,6 +5,16 @@ export interface IInputProps
   error: string | undefined;
 }
 
+export interface IEmail {
+  email: string
+}
+
+
+export interface ILoginData {
+  username: string,
+  password: string
+}
+
 export interface IRegisterData {
   username: string;
   alias: string;
@@ -12,18 +22,14 @@ export interface IRegisterData {
   password: string;
 }
 
-export interface ILoginData {
-  username: string,
-  password: string
-}
-
-export interface IEmail {
-  email: string
-}
-
 export interface IResetPassword {
   password: string;
   confirmPassword: string;
+}
+
+export interface IVerify {
+  email: string;
+  otp: number;
 }
 
 export const RegisterSchema: ZodType<IRegisterData> = z.object({
@@ -46,3 +52,9 @@ export const ResetPasswordSchema: ZodType<IResetPassword> = z.object({
   password: z.string().min(6, 'Password should have atleast 6 characters').max(20, 'Password too long'),
   confirmPassword: z.string(),
 }).refine(({ confirmPassword, password }) => password === confirmPassword, { message: 'Both passwords should match', path: ['confirmPassword'] })
+
+export const VerifyUserSchema: ZodType<IEmail> = z.object({
+  email: z.string().email(),
+  otp: z.number().min(100000, 'OTP should be of 6 digits').max(999999, 'OTP should be of 6 digits')
+})
+

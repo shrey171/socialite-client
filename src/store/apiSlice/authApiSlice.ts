@@ -34,6 +34,13 @@ const extendedApi = apiSlice.injectEndpoints({
         method: 'PATCH',
         body: { password, confirmPassword },
       })
+    }),
+    verifyUser: build.mutation({
+      query: credentials => ({
+        url: `${baseUrl}/verify`,
+        method: 'PATCH',
+        body: credentials,
+      })
     })
   }),
   overrideExisting: false,
@@ -44,5 +51,6 @@ export const {
   useRegisterMutation,
   useRefreshMutation,
   useForgotPasswordMutation,
-  useResetPasswordMutation
+  useResetPasswordMutation,
+  useVerifyUserMutation,
 } = extendedApi
