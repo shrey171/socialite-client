@@ -1,5 +1,5 @@
 import { Logo } from "components/common";
-import RegisterForm from "components/forms/RegisterForm";
+import RegisterForm from "components/auth/forms/RegisterForm";
 import { Link } from "react-router-dom";
 
 export const Register = () => {

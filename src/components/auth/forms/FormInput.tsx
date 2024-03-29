@@ -11,7 +11,7 @@ const FormInput = forwardRef<HTMLInputElement, IInputProps>(
           {name}
         </label>
         <input
-          className="rounded-md p-3 mb-1 text-sm bg-[#1F1F22] md:p-4
+          className="rounded-md p-3 text-sm bg-[#1F1F22] md:p-4
           border-none outline-none outline-2 outline-offset-0 focus-visible:outline-[#7878A3]  
           disabled:cursor-not-allowed disabled:opacity-50"
           name={name}
@@ -19,7 +19,7 @@ const FormInput = forwardRef<HTMLInputElement, IInputProps>(
           ref={ref}
           {...props}
         />
-        {error && <p className="text-red text-sm">{error}</p>}
+        {error && <p className="text-red mt-1 text-sm">{error}</p>}
       </div>
     );
   }

@@ -41,7 +41,14 @@ const extendedApi = apiSlice.injectEndpoints({
         method: 'PATCH',
         body: credentials,
       })
-    })
+    }),
+    resendOtp: build.mutation({
+      query: credentials => ({
+        url: `${baseUrl}/resend-otp`,
+        method: 'PATCH',
+        body: credentials,
+      })
+    }),
   }),
   overrideExisting: false,
 })
@@ -52,5 +59,6 @@ export const {
   useRefreshMutation,
   useForgotPasswordMutation,
   useResetPasswordMutation,
+  useResendOtpMutation,
   useVerifyUserMutation,
 } = extendedApi

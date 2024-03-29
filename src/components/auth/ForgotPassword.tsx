@@ -1,8 +1,8 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Logo } from "components/common";
-import FormButton from "components/forms/FormButton";
-import FormInput from "components/forms/FormInput";
-import { EmailSchema, IEmail } from "components/forms/FormTypes";
+import FormButton from "components/auth/forms/FormButton";
+import FormInput from "components/auth/forms/FormInput";
+import { EmailSchema, IEmail } from "components/auth/forms/FormTypes";
 import { FieldValues, useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";

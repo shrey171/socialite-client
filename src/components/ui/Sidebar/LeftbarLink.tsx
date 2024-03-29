@@ -1,9 +1,14 @@
 import { Link, useLocation } from "react-router-dom";
-import { ISideBarLinkProps } from "./types";
 
-const SidebarLink = ({ to, text, Icon }: ISideBarLinkProps) => {
-  const path = useLocation().pathname;
-  const isActive = to === path;
+export interface ISideBarLinkProps {
+  to: string;
+  text: string;
+  Icon: React.FC<React.SVGProps<SVGSVGElement>>;
+}
+
+export const LeftbarLink = ({ to, text, Icon }: ISideBarLinkProps) => {
+  const { pathname } = useLocation();
+  const isActive = to === pathname;
   let activeLinkClasses = "";
   let activeIconClasses = "";
   if (isActive) {
@@ -22,4 +27,3 @@ const SidebarLink = ({ to, text, Icon }: ISideBarLinkProps) => {
     </Link>
   );
 };
-export default SidebarLink;

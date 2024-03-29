@@ -5,7 +5,8 @@ interface IInitialState {
   user: {
     username: string,
     alias: string,
-    email: string
+    email: string,
+    isVerified: boolean
   } | null;
   token: string | null;
 }

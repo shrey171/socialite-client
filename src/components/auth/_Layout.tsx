@@ -1,16 +1,6 @@
-import { useAppSelector } from "hooks";
-import { useEffect } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
-import { selectToken } from "store/slices";
+import { Outlet } from "react-router-dom";
 
 const _Layout = () => {
-  const token = useAppSelector(selectToken);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (token) navigate("/", { replace: true });
-  }, [token]);
-
   return (
     <main className="flex min-h-screen w-full">
       <div className="flex-center basis-full">

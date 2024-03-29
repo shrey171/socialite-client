@@ -5,8 +5,9 @@ import {
 import { setCredentials } from "store/slices";
 import { useAppDispatch } from ".";
 import { FieldValues, UseFormSetError } from "react-hook-form";
-import { ILoginData, IRegisterData } from "components/forms/FormTypes";
+import { ILoginData, IRegisterData } from "components/auth/forms/FormTypes";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 interface props {
   type: "login" | "register";
@@ -16,6 +17,7 @@ interface props {
 export const useAuth = ({ type, setError }: props) => {
   const [login] = useLoginMutation();
   const [register] = useRegisterMutation();
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
   return async (data: FieldValues) => {
@@ -24,7 +26,10 @@ export const useAuth = ({ type, setError }: props) => {
       const result = await mutation(data).unwrap();
       const user = result.data;
       dispatch(setCredentials({ user, token: user.token }));
-      if (type === 'register') toast.success('Please verify your email with link sent to you')
+      if (type === 'register') {
+        toast.success('Please verify your email with link sent to you')
+        navigate('/verify')
+      }
       return result;
     } catch (e: any) {
       const errors = e?.data?.errors;

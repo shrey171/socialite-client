@@ -6,7 +6,7 @@ import {
   RouterProvider,
   createBrowserRouter,
 } from "react-router-dom";
-import { AuthLayout, ForgotPassword, Login, Register, ResetPassword, VerifyUser } from "auth";
+import { AuthLayout, ForgotPassword, Login, Register, ResetPassword, VerifyUser } from "components/auth";
 import { Provider } from "react-redux";
 import { store } from "store";
 import "./index.css";

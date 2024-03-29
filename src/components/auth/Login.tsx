@@ -1,5 +1,5 @@
 import { Logo } from "components/common";
-import LoginForm from "components/forms/LoginForm";
+import LoginForm from "components/auth/forms/LoginForm";
 import { Link } from "react-router-dom";
 
 export const Login = () => {
